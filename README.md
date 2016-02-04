@@ -13,28 +13,29 @@ For Steam In-Home Streaming, your remote computer has to be unlocked unfortunate
 
 
 ## Prerequirements, initial setup (on desktop/remote computer)
-1. Extract the contents of the installer ZIP to the folder `C:\SteamLogonService\` (just an example, you can also choose another location).
+1. Download the installer and scripts: https://github.com/dwettstein/Steam_AutoLogon_Service/blob/master/Steam_AutoLogon_Service_Installer.zip?raw=true
+2. Extract the contents of the installer ZIP to the folder `C:\SteamLogonService\` (just an example, you can also choose another location).
   * Copy over the script `Send-SteamStreamPhrase.ps1` to your couch/streaming computer and update the values in it (IP, Port, start phrase).
-2. Install the Steam AutoLogon Service with the provided installer (you can also install it by using Visual Studio if you want, see on the bottom).
-3. Goto installation folder and open the file `SteamLogonService.exe.config` with a text editor (e.g. Notepad).
-4. Fill in the information needed by the service:
+3. Install the Steam AutoLogon Service with the provided installer (you can also install it by using Visual Studio if you want, see on the bottom).
+4. Goto installation folder and open the file `SteamLogonService.exe.config` with a text editor (e.g. Notepad).
+5. Fill in the information needed by the service:
   * IP address of your desktop/remote computer
   * Port of your desktop/remote computer you want to use for the logon command
   * Username of the auto logon account
   * Password of the auto logon account
   * Start phrase you want to use for the logon command
-5. Open Windows Firewall and go to Inbound Rules. Create a new rule of type Port and enter your chosen port from above (apply to TCP). Allow the connection, but apply the rule only to your private network.
-6. Set up a new local Windows account with username and password from above (no administrator rights needed) on your desktop/remote computer.
-7. Log on to the newly created account.
-8. Create a scheduled task with following settings:
+6. Open Windows Firewall and go to Inbound Rules. Create a new rule of type Port and enter your chosen port from above (apply to TCP). Allow the connection, but apply the rule only to your private network.
+7. Set up a new local Windows account with username and password from above (no administrator rights needed) on your desktop/remote computer.
+8. Log on to the newly created account.
+9. Create a scheduled task with following settings:
   * Name: Remove-AutoLogon
   * When running the task, use the following user account: your administrator account (run whether user is logged on or not)
   * Trigger: At log on of your newly created local gaming account.
   * Action:
     * Start a program: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
     * Add arguments: `-File "C:\SteamLogonService\Remove-AutoLogon.ps1"`
-9. Start the Steam application within your new gaming account and set up auto-start in Big Picture mode (needed for streaming).
-10. Reboot your desktop/remote computer.
+10. Start the Steam application within your new gaming account and set up auto-start in Big Picture mode (needed for streaming).
+11. Reboot your desktop/remote computer.
 
 
 ## Using the service (on couch/streaming computer)
