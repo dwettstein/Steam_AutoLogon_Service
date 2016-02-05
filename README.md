@@ -3,6 +3,8 @@ The service and scripts within this project can be used for automatically turn o
 
 For Steam In-Home Streaming, your remote computer has to be unlocked unfortunately. By using the service and scripts within this project you are able to logon and unlock your gaming computer remotely. This is especially useful if you don't want to always auto logon into your gaming account.
 
+Check out also the Steam discussion here: http://steamcommunity.com/groups/homestream/discussions/0/405690850608007612/
+
 #### Procedure
 1. The couch computer boots remote computer over Wake-On-Lan (or just power it on manually) and sends start phrase to it after it has booted.
 2. The remote computer (Steam Logon Service) receives the start phrase and automatically logs on into your gaming account once (after a reboot).
